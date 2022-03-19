@@ -1,14 +1,19 @@
 import React from 'react';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
-import HomePage from './pages/homepage/HomePage.Component';
+import Navigation from './routes/Navigation/Navigation.component';
+import HomePage from './routes/Home/Home.component';
+import SignInPage from './routes/SignIn/SignIn.component';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<HomePage />} />
+        <Route path="sign-in" element={<SignInPage />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
